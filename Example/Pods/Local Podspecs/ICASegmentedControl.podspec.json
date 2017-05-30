@@ -1,8 +1,8 @@
 {
   "name": "ICASegmentedControl",
   "version": "0.1.0",
-  "summary": "A short description of ICASegmentedControl.",
-  "description": "TODO: Add long description of the pod here.",
+  "summary": "Custom Segmented Control Written in Swift",
+  "description": "Easy to use Custom Segmented Control with Swift",
   "homepage": "https://github.com/wahyusumartha/ICASegmentedControl",
   "license": {
     "type": "MIT",
