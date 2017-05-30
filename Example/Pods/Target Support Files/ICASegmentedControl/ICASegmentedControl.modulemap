@@ -1,0 +1,6 @@
+framework module ICASegmentedControl {
+  umbrella header "ICASegmentedControl-umbrella.h"
+
+  export *
+  module * { export * }
+}
