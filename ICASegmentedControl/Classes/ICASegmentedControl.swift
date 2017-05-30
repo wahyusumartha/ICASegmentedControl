@@ -39,37 +39,37 @@ extension ICASegmentedControlBehaviour {
 }
 
 public class ICASegmentedControl: UIControl, ICASegmentedControlBehaviour, ICASegmentedControlHeader, ICASegmentedControlAppearance {
-  var scrollView: ICAScrollView?
+  public var scrollView: ICAScrollView?
  
-  var selectedIndex: Int = 0
-  var isDraggable: Bool = false
+  public var selectedIndex: Int = 0
+  public var isDraggable: Bool = false
  
-  var sectionTitles: [String] = []
-  var indicatorHeight: CGFloat = 2
-  var segmentWidth: CGFloat = 100
-  var borderWidth: CGFloat = 1
-  var dividerWidth: CGFloat = 1
+  public var sectionTitles: [String] = []
+  public var indicatorHeight: CGFloat = 2
+  public var segmentWidth: CGFloat = 100
+  public var borderWidth: CGFloat = 1
+  public var dividerWidth: CGFloat = 1
  
-  var titleFont: UIFont = UIFont.systemFont(ofSize: 14)
-  var titleColor: UIColor = UIColor.blue
-  var selectedTitleFont: UIFont = UIFont.systemFont(ofSize: 14)
-  var selectedTitleColor: UIColor = UIColor.red
-  var indicatorColor: UIColor = UIColor.red
-  var shadowColor: UIColor = UIColor(red: 178/255, green: 178/255, blue: 178/255, alpha: 1.0)
-  var borderColor: UIColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
-  var dividerColor: UIColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
+  public var titleFont: UIFont = UIFont.systemFont(ofSize: 14)
+  public var titleColor: UIColor = UIColor.blue
+  public var selectedTitleFont: UIFont = UIFont.systemFont(ofSize: 14)
+  public var selectedTitleColor: UIColor = UIColor.red
+  public var indicatorColor: UIColor = UIColor.red
+  public var shadowColor: UIColor = UIColor(red: 178/255, green: 178/255, blue: 178/255, alpha: 1.0)
+  public var borderColor: UIColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
+  public var dividerColor: UIColor = UIColor(red: 234/255, green: 234/255, blue: 234/255, alpha: 1)
   
   let selectedIndicatorLayer = CALayer()
 
-  var isShowBorder = false
-  var isShowVerticalDivider = false
+  public var isShowBorder = false
+  public var isShowVerticalDivider = false
   
-  override init(frame: CGRect) {
+  override public init(frame: CGRect) {
     super.init(frame: frame)
     initializeComponent()
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     initializeComponent()
   }
@@ -163,12 +163,12 @@ public class ICASegmentedControl: UIControl, ICASegmentedControlBehaviour, ICASe
   }
   
   //MARK: Frame and layout Handler 
-  override func layoutSubviews() {
+  override public func layoutSubviews() {
     super.layoutSubviews()
     updateSegmentRects()
   }
   
-  override var frame: CGRect {
+  override public var frame: CGRect {
     get {
       return super.frame
     }
@@ -193,7 +193,7 @@ public class ICASegmentedControl: UIControl, ICASegmentedControlBehaviour, ICASe
   }
   
   //MARK: Draw Box 
-  override func draw(_ rect: CGRect) {
+  override public func draw(_ rect: CGRect) {
     backgroundColor?.setFill()
     UIRectFill(bounds)
     
@@ -270,7 +270,7 @@ public class ICASegmentedControl: UIControl, ICASegmentedControlBehaviour, ICASe
     return sectionTitles.count
   }
   
-  func setSectionTitles(sectionTitles: [String]) {
+  public func setSectionTitles(sectionTitles: [String]) {
     self.sectionTitles = sectionTitles
     setNeedsLayout()
     setNeedsDisplay()
@@ -348,7 +348,7 @@ public class ICASegmentedControl: UIControl, ICASegmentedControlBehaviour, ICASe
   }
   
   //MARK: Touch 
-  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     let touch = touches.first
     if let touchLocation = touch?.location(in: self) {
       if bounds.contains(touchLocation) {

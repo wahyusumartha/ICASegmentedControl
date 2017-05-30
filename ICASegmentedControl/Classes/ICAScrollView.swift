@@ -9,7 +9,7 @@
 import UIKit
 
 public class ICAScrollView: UIScrollView {
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override public func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !isDragging {
       next?.touchesBegan(touches, with: event)
     } else {
@@ -17,7 +17,7 @@ public class ICAScrollView: UIScrollView {
     }
   }
   
-  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override public func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !isDragging {
       next?.touchesMoved(touches, with: event)
     } else {
@@ -25,7 +25,7 @@ public class ICAScrollView: UIScrollView {
     }
   }
   
-  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     if !isDragging {
       next?.touchesEnded(touches, with: event)
     } else {
