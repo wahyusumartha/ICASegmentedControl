@@ -63,6 +63,7 @@ public class ICASegmentedControl: UIControl, ICASegmentedControlBehaviour, ICASe
 
   public var isShowBorder = false
   public var isShowVerticalDivider = false
+  public var isShadowEnable = false
   
   override public init(frame: CGRect) {
     super.init(frame: frame)
@@ -151,12 +152,22 @@ public class ICASegmentedControl: UIControl, ICASegmentedControlBehaviour, ICASe
     scrollView?.backgroundColor = UIColor.white
     addSubview(scrollView!)
 
-    // apply shadow 
-    layer.shadowColor = shadowColor.cgColor
-    layer.masksToBounds = false
-    layer.shadowOffset = CGSize(width: 0, height: 1.0)
-    layer.shadowOpacity = 1
-    layer.shadowRadius = 1
+    // apply shadow
+    if isShadowEnable {
+      layer.shadowColor = shadowColor.cgColor
+      layer.masksToBounds = false
+      layer.shadowOffset = CGSize(width: 0, height: 1.0)
+      layer.shadowOpacity = 1
+      layer.shadowRadius = 1
+    } else {
+      let borderLayer = CALayer()
+      borderLayer.backgroundColor = borderColor.cgColor
+      borderLayer.frame = CGRect(x: 0,
+                                 y: frame.size.height - borderWidth,
+                                 width: frame.size.width,
+                                 height: borderWidth)
+      layer.addSublayer(borderLayer)
+    }
     
     backgroundColor = UIColor.red
     contentMode = .redraw

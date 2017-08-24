@@ -18,10 +18,12 @@ class ViewController: UIViewController {
     let segmentedControl = ICASegmentedControl(frame: CGRect(x: 0, y: 0,
                                                              width: viewWidth, height: 48))
     segmentedControl.autoresizingMask = [.flexibleRightMargin, .flexibleLeftMargin]
+    segmentedControl.indicatorHeight = 3
     segmentedControl.selectedTitleColor = selectedColor
     segmentedControl.indicatorColor = selectedColor
     segmentedControl.titleColor = titleColor
-    
+    segmentedControl.isShowVerticalDivider = true
+    segmentedControl.isShadowEnable = false
     return segmentedControl
   }()
   
